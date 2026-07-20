@@ -19,7 +19,7 @@ function CopyLinkButton({ url }: { url: string }) {
         });
     };
     return (
-        <button onClick={copy} aria-label="Copy shareable link" style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "6px 14px", borderRadius: 8, border: "1.5px solid #e5e5ea", background: copied ? "#f0fdf4" : "white", color: copied ? "#16a34a" : "#3c3c43", fontSize: 12, fontWeight: 500, cursor: "pointer", transition: "all 0.15s ease" }}>
+        <button onClick={copy} title="Copy a shareable ?url= link" style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "6px 14px", borderRadius: 8, border: "1.5px solid #e5e5ea", background: copied ? "#f0fdf4" : "white", color: copied ? "#16a34a" : "#3c3c43", fontSize: 12, fontWeight: 500, cursor: "pointer", transition: "all 0.15s ease" }}>
             {copied ? (
                 <>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
@@ -113,7 +113,7 @@ export default function ResponsivenessPage() {
                                 URL to preview
                             </label>
                             <div style={{ display: "flex", alignItems: "center", background: "#f5f5f7", borderRadius: 14, padding: "10px 14px", gap: 10, border: "1.5px solid #e5e5ea", boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}>
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" strokeWidth="2" style={{ flexShrink: 0 }} aria-hidden>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6e6e73" strokeWidth="2" style={{ flexShrink: 0 }} aria-hidden>
                                     <circle cx="12" cy="12" r="10" />
                                     <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                                 </svg>
@@ -141,7 +141,7 @@ export default function ResponsivenessPage() {
                             </div>
                         </form>
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, marginTop: 10, flexWrap: "wrap" }}>
-                            <span style={{ fontSize: 11, color: "#8e8e93" }}>Paste to auto-load · localhost:3000 · your-site.com · 192.168.x.x:PORT</span>
+                            <span style={{ fontSize: 11, color: "#6e6e73" }}>Paste to auto-load · localhost:3000 · your-site.com · 192.168.x.x:PORT</span>
                             <button type="button" onClick={() => submit(DEMO_URL)} style={{ fontSize: 11, color: "#007aff", background: "none", border: "none", cursor: "pointer", padding: 0, fontWeight: 600 }}>
                                 Try demo →
                             </button>
@@ -176,7 +176,7 @@ export default function ResponsivenessPage() {
                         group.devices.length === 0 ? null : (
                             <section key={group.label} style={{ marginBottom: 56 }} aria-label={group.label}>
                                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 28 }}>
-                                    <span style={{ fontSize: 10, fontWeight: 800, color: CAT_COLOR[group.label] ?? "#8e8e93", letterSpacing: 1.4, textTransform: "uppercase" }}>{group.label}</span>
+                                    <span style={{ fontSize: 10, fontWeight: 800, color: CAT_COLOR[group.label] ?? "#6e6e73", letterSpacing: 1.4, textTransform: "uppercase" }}>{group.label}</span>
                                     <div style={{ flex: 1, height: 1, background: "#ebebf0" }} />
                                     <span style={{ fontSize: 10, color: "#c7c7cc", fontWeight: 500 }}>
                                         {group.devices.length} device{group.devices.length > 1 ? "s" : ""}
@@ -193,7 +193,7 @@ export default function ResponsivenessPage() {
                 </div>
 
                 <footer style={{ position: "fixed", bottom: 0, left: 0, right: 0, background: "rgba(255,255,255,0.9)", backdropFilter: "blur(12px)", borderTop: "1px solid #f0f0f5", padding: "10px 24px", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 50 }}>
-                    <span style={{ fontSize: 11, color: "#8e8e93" }}>
+                    <span style={{ fontSize: 11, color: "#6e6e73" }}>
                         💡 Many sites block embedding (X-Frame-Options / CSP) · <strong style={{ color: "#6e6e73" }}>localhost and same-origin URLs always work</strong> · use <code style={{ background: "#f5f5f7", padding: "1px 5px", borderRadius: 4, fontSize: 10 }}>?url=</code> to share
                     </span>
                 </footer>

@@ -17,13 +17,13 @@ function Placeholder({ hasUrl, loading }: { hasUrl: boolean; loading?: boolean }
                         <path d="M18 6 6 18M6 6l12 12" />
                     </svg>
                 ) : (
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#aeaeb2" strokeWidth="1.8" aria-hidden>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6e6e73" strokeWidth="1.8" aria-hidden>
                         <circle cx="11" cy="11" r="8" />
                         <path d="m21 21-4.35-4.35" />
                     </svg>
                 )}
             </div>
-            <p style={{ margin: 0, fontSize: 9, color: loading ? "#007aff" : hasUrl ? "#ff3b30" : "#aeaeb2", fontFamily: "system-ui", textAlign: "center", lineHeight: 1.5, padding: "0 8px" }}>{loading ? "Loading…" : hasUrl ? "Blocked by site" : "Enter a URL"}</p>
+            <p style={{ margin: 0, fontSize: 9, color: loading ? "#007aff" : hasUrl ? "#ff3b30" : "#6e6e73", fontFamily: "system-ui", textAlign: "center", lineHeight: 1.5, padding: "0 8px" }}>{loading ? "Loading…" : hasUrl ? "Blocked by site" : "Enter a URL"}</p>
         </div>
     );
 }
@@ -61,7 +61,7 @@ function LiveFrame({ device, url, urlKey, scale, onSuccess }: { device: Device; 
                     <Placeholder hasUrl={false} loading />
                 </div>
             )}
-            <iframe key={`${urlKey}-${device.id}`} src={url} onLoad={handleLoad} style={{ width: device.viewport.width, height: device.viewport.height, transform: `scale(${scale})`, transformOrigin: "top left", border: "none", display: "block" }} title={`${device.name} preview`} />
+            <iframe key={`${urlKey}-${device.id}`} src={url} onLoad={handleLoad} loading="lazy" style={{ width: device.viewport.width, height: device.viewport.height, transform: `scale(${scale})`, transformOrigin: "top left", border: "none", display: "block" }} title={`${device.name} preview`} />
         </>
     );
 }
@@ -190,7 +190,7 @@ function TVFrame({ device, url, urlKey, onSuccess }: { device: Device; url: stri
 function Chip({ label, value, hovered, color }: { label: string; value: string; hovered: boolean; color: string }) {
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2, background: hovered ? `${color}12` : "#f5f5f7", borderRadius: 8, padding: "5px 9px", transition: "background 0.2s ease" }}>
-            <span style={{ fontSize: 8, color: hovered ? color : "#8e8e93", fontWeight: 600, letterSpacing: 0.4, textTransform: "uppercase", whiteSpace: "nowrap", transition: "color 0.2s ease" }}>{label}</span>
+            <span style={{ fontSize: 8, color: hovered ? color : "#6e6e73", fontWeight: 600, letterSpacing: 0.4, textTransform: "uppercase", whiteSpace: "nowrap", transition: "color 0.2s ease" }}>{label}</span>
             <span style={{ fontSize: 11, color: "#1d1d1f", fontWeight: 600, whiteSpace: "nowrap" }}>{value}</span>
         </div>
     );
@@ -231,7 +231,7 @@ export function DeviceCard({ device, url, urlKey, onSuccess }: { device: Device;
             <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 6 }}>
                 <div style={{ textAlign: "center" }}>
                     <p style={{ margin: 0, fontSize: 12, fontWeight: 700, color: hovered ? color : "#1d1d1f", letterSpacing: -0.3, transition: "color 0.2s ease" }}>{device.name}</p>
-                    <p style={{ margin: "2px 0 0", fontSize: 10, color: "#8e8e93" }}>
+                    <p style={{ margin: "2px 0 0", fontSize: 10, color: "#6e6e73" }}>
                         {device.spec.os} · {device.spec.year}
                     </p>
                 </div>
