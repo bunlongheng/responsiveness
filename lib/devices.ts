@@ -45,6 +45,7 @@ export const DEVICES: Device[] = [
 
 export const FILTERS: FilterType[] = ["All", "iPhone", "Android", "iPad", "Desktop", "Watch", "TV"];
 
+// Vibrant accents for frames, dots, glows, and backgrounds.
 export const CAT_COLOR: Record<string, string> = {
     iPhone: "#007aff",
     Android: "#34c759",
@@ -52,4 +53,14 @@ export const CAT_COLOR: Record<string, string> = {
     Desktop: "#ff9500",
     Watch: "#ff375f",
     TV: "#30b0c7",
+};
+
+// Darker, WCAG-AA (>=4.5:1 on white) variants for small text labels.
+export const CAT_TEXT: Record<string, string> = {
+    iPhone: "#0067d6",
+    Android: "#237a3d",
+    iPad: "#8e3fb0",
+    Desktop: "#a45b00",
+    Watch: "#d1224a",
+    TV: "#157d90",
 };

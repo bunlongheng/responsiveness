@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
-import { FILTERS, CAT_COLOR, type FilterType } from "@/lib/devices";
+import { FILTERS, CAT_COLOR, CAT_TEXT, type FilterType } from "@/lib/devices";
 import { normalizeUrl, looksLikeUrl, buildShareLink, groupDevices, countFor } from "@/lib/responsive";
 import { playPop, playSuccess } from "@/lib/sound";
 import { Confetti } from "@/components/Confetti";
@@ -144,7 +144,7 @@ export default function ResponsivenessPage() {
                         </form>
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, marginTop: 10, flexWrap: "wrap" }}>
                             <span style={{ fontSize: 11, color: "#6e6e73" }}>Paste to auto-load · localhost:3000 · your-site.com · 192.168.x.x:PORT</span>
-                            <button type="button" onClick={() => submit(DEMO_URL)} style={{ fontSize: 11, color: "#007aff", background: "none", border: "none", cursor: "pointer", padding: 0, fontWeight: 600 }}>
+                            <button type="button" onClick={() => submit(DEMO_URL)} style={{ fontSize: 11, color: CAT_TEXT.iPhone, background: "none", border: "none", cursor: "pointer", padding: 0, fontWeight: 600 }}>
                                 Try demo →
                             </button>
                             {activeUrl && <CopyLinkButton url={activeUrl} />}
@@ -178,7 +178,7 @@ export default function ResponsivenessPage() {
                         group.devices.length === 0 ? null : (
                             <section key={group.label} style={{ marginBottom: 56 }} aria-label={group.label}>
                                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 28 }}>
-                                    <span style={{ fontSize: 10, fontWeight: 800, color: CAT_COLOR[group.label] ?? "#6e6e73", letterSpacing: 1.4, textTransform: "uppercase" }}>{group.label}</span>
+                                    <span style={{ fontSize: 10, fontWeight: 800, color: CAT_TEXT[group.label] ?? "#6e6e73", letterSpacing: 1.4, textTransform: "uppercase" }}>{group.label}</span>
                                     <div style={{ flex: 1, height: 1, background: "#ebebf0" }} />
                                     <span style={{ fontSize: 10, color: "#c7c7cc", fontWeight: 500 }}>
                                         {group.devices.length} device{group.devices.length > 1 ? "s" : ""}

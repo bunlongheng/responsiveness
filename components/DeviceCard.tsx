@@ -1,6 +1,6 @@
 "use client";
 import { useState, useRef, useCallback, useEffect } from "react";
-import { type Device, CAT_COLOR } from "@/lib/devices";
+import { type Device, CAT_COLOR, CAT_TEXT } from "@/lib/devices";
 import { getScreenSize } from "@/lib/responsive";
 import { playPop } from "@/lib/sound";
 
@@ -187,10 +187,10 @@ function TVFrame({ device, url, urlKey, onSuccess }: { device: Device; url: stri
     );
 }
 
-function Chip({ label, value, hovered, color }: { label: string; value: string; hovered: boolean; color: string }) {
+function Chip({ label, value, hovered, color, textColor }: { label: string; value: string; hovered: boolean; color: string; textColor: string }) {
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2, background: hovered ? `${color}12` : "#f5f5f7", borderRadius: 8, padding: "5px 9px", transition: "background 0.2s ease" }}>
-            <span style={{ fontSize: 8, color: hovered ? color : "#6e6e73", fontWeight: 600, letterSpacing: 0.4, textTransform: "uppercase", whiteSpace: "nowrap", transition: "color 0.2s ease" }}>{label}</span>
+            <span style={{ fontSize: 8, color: hovered ? textColor : "#6e6e73", fontWeight: 600, letterSpacing: 0.4, textTransform: "uppercase", whiteSpace: "nowrap", transition: "color 0.2s ease" }}>{label}</span>
             <span style={{ fontSize: 11, color: "#1d1d1f", fontWeight: 600, whiteSpace: "nowrap" }}>{value}</span>
         </div>
     );
@@ -200,6 +200,7 @@ export function DeviceCard({ device, url, urlKey, onSuccess }: { device: Device;
     const [hovered, setHovered] = useState(false);
     const { w } = getScreenSize(device);
     const color = CAT_COLOR[device.category] || "#007aff";
+    const textColor = CAT_TEXT[device.category] || "#0067d6";
 
     const frameWidth = device.type === "phone" ? w + (device.homeButton ? 22 : 18) : device.type === "tablet" ? w + 28 : device.type === "watch" ? w + 14 : device.type === "tv" ? w + 24 : w + (device.isIMac ? 16 : 20);
     const cardWidth = Math.max(frameWidth, 140);
@@ -230,16 +231,16 @@ export function DeviceCard({ device, url, urlKey, onSuccess }: { device: Device;
 
             <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 6 }}>
                 <div style={{ textAlign: "center" }}>
-                    <p style={{ margin: 0, fontSize: 12, fontWeight: 700, color: hovered ? color : "#1d1d1f", letterSpacing: -0.3, transition: "color 0.2s ease" }}>{device.name}</p>
+                    <p style={{ margin: 0, fontSize: 12, fontWeight: 700, color: hovered ? textColor : "#1d1d1f", letterSpacing: -0.3, transition: "color 0.2s ease" }}>{device.name}</p>
                     <p style={{ margin: "2px 0 0", fontSize: 10, color: "#6e6e73" }}>
                         {device.spec.os} · {device.spec.year}
                     </p>
                 </div>
                 <div style={{ display: "flex", gap: 4, flexWrap: "wrap", justifyContent: "center" }}>
-                    <Chip label="RES" value={`${device.viewport.width}×${device.viewport.height}`} hovered={hovered} color={color} />
-                    <Chip label="RATIO" value={device.spec.ratio} hovered={hovered} color={color} />
-                    <Chip label="SCREEN" value={device.spec.screen} hovered={hovered} color={color} />
-                    <Chip label="PPI" value={`${device.spec.ppi}`} hovered={hovered} color={color} />
+                    <Chip label="RES" value={`${device.viewport.width}×${device.viewport.height}`} hovered={hovered} color={color} textColor={textColor} />
+                    <Chip label="RATIO" value={device.spec.ratio} hovered={hovered} color={color} textColor={textColor} />
+                    <Chip label="SCREEN" value={device.spec.screen} hovered={hovered} color={color} textColor={textColor} />
+                    <Chip label="PPI" value={`${device.spec.ppi}`} hovered={hovered} color={color} textColor={textColor} />
                 </div>
             </div>
         </div>
