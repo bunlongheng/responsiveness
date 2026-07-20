@@ -180,7 +180,7 @@ export default function ResponsivenessPage() {
                                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 28 }}>
                                     <span style={{ fontSize: 10, fontWeight: 800, color: CAT_TEXT[group.label] ?? "#6e6e73", letterSpacing: 1.4, textTransform: "uppercase" }}>{group.label}</span>
                                     <div style={{ flex: 1, height: 1, background: "#ebebf0" }} />
-                                    <span style={{ fontSize: 10, color: "#c7c7cc", fontWeight: 500 }}>
+                                    <span style={{ fontSize: 10, color: "#6e6e73", fontWeight: 500 }}>
                                         {group.devices.length} device{group.devices.length > 1 ? "s" : ""}
                                     </span>
                                 </div>
