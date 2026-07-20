@@ -4,7 +4,6 @@ import "./globals.css";
 export const metadata: Metadata = {
     title: "Responsiveness - preview any URL across devices",
     description: "Paste any URL and see it rendered live across real device frames - iPhone, iPad, Android, Desktop, Apple Watch, and Smart TV, side by side.",
-    icons: { icon: "/favicon.svg" },
     openGraph: {
         title: "Responsiveness",
         description: "Preview any URL across iPhone, iPad, Android, Desktop, Watch and TV frames.",
