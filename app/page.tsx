@@ -41,8 +41,10 @@ function CopyLinkButton({ url }: { url: string }) {
 }
 
 export default function ResponsivenessPage() {
-    const [inputVal, setInputVal] = useState(DEMO_URL);
-    const [activeUrl, setActiveUrl] = useState(DEMO_URL);
+    // Start idle (empty frames) so the landing page is instant and never auto-loads
+    // an external site. "Try demo" or a pasted/typed URL fills the frames.
+    const [inputVal, setInputVal] = useState("");
+    const [activeUrl, setActiveUrl] = useState("");
     const [urlKey, setUrlKey] = useState(0);
     const [activeFilter, setFilter] = useState<FilterType>("All");
     const [confettiTrigger, setConf] = useState(0);

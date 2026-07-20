@@ -1,11 +1,13 @@
 import { test, expect } from "@playwright/test";
 
-test("loads, shows device frames, and filters", async ({ page }) => {
+test("loads idle, shows device frames, and filters", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByRole("heading", { name: "Preview in every frame." })).toBeVisible();
 
-    // device iframes render (title = "<device> preview")
-    await expect(page.locator('iframe[title$="preview"]').first()).toBeVisible();
+    // idle: device cards render with placeholders, not iframes
+    await expect(page.getByText("iPhone 17 Pro Max")).toBeVisible();
+    await expect(page.getByText("Enter a URL").first()).toBeVisible();
+    await expect(page.locator("iframe")).toHaveCount(0);
 
     // filtering to Watch narrows the set
     await page.getByRole("button", { name: /^Watch/ }).click();
