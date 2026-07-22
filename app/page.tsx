@@ -460,9 +460,11 @@ export default function ResponsivenessPage() {
                             alignItems: "center",
                             justifyContent: "center",
                             padding: 24,
-                            background: "rgba(14,14,16,0.5)",
-                            backdropFilter: "blur(16px)",
-                            WebkitBackdropFilter: "blur(16px)",
+                            // Solid scrim instead of backdrop-filter: blurring a fullscreen area over
+                            // 25 live iframes + the confetti canvas forces a full-screen GPU re-blur every
+                            // frame the background moves - that was the immersive-mode lag. A flat scrim
+                            // dims the grid for focus at ~zero cost.
+                            background: "rgba(12,12,14,0.92)",
                             animation: "overlayIn 0.2s ease",
                         }}
                     >
