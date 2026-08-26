@@ -1,4 +1,14 @@
 <div align="center">
+  <img src="docs/icon.png" alt="Responsiveness" width="96" height="96" />
+  <h1>Responsiveness</h1>
+  <p><em>Paste any URL and preview it live across 16 real device frames: phone, tablet, desktop, watch, TV</em></p>
+  <p><a href="https://responsiveness-bheng.vercel.app">Live</a> &middot; <a href="https://github.com/bunlongheng/responsiveness">Repo</a> &middot; <a href="https://bunlongheng.com/projects?name=responsiveness">Portfolio</a></p>
+  <img src="docs/social-preview.png" alt="Responsiveness - preview" width="820" />
+</div>
+
+---
+
+<div align="center">
 
 # Responsiveness
 
